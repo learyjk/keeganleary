@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/carousel/">
+<div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+    <div class="inner cover text-center">
+        <a href="{{ project.link }}">
+            <h1 class="cover-heading">{{ project.title }}</h1>
+        </a>
+        <a href="{{ project.github_link }}" style="color:black">
+            <i class="fab fa-github fa-3x"></i>
+        </a>
+        <p></p>
+        <p class="lead">{{ project.long_description|linebreaks|urlize }}</p>
+    </div>
+
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="jumbotron text-center">
+    <div class="container">
+        <h1>Hi, My name is Keegan</h1>
+        <p class="lead text-muted">I believe we become the best version of ourselves through hard work, adventure, and deep relationships.</p>
+        <p class="lead text-muted fa-2x">📤&nbsp;&nbsp; 🗺&nbsp;&nbsp; 🏃&nbsp;&nbsp; ‍ 📬</p>
+        <div class="d-flex justify-content-center">
+            <div class="col-sm-6">
+                <div class="card mb-4 shadow-sm">
+                    <img class="card-img-top" src="{% static 'keegan.jpeg' %}" />
+                </div>
+            </div>
+        </div>
+        <a href="https://github.com/learyjk" style="color:black">
+            <i class="fab fa-github fa-3x"></i>
+        </a>
+        &nbsp;&nbsp;&nbsp;
+        <a href="https://www.instagram.com/lt_leary/" style="color:black">
+            <i class="fab fa-instagram fa-3x"></i>
+        </a>
+        &nbsp;&nbsp;&nbsp;
+        <a href="https://www.linkedin.com/in/kleary/" style="color:black">
+            <i class="fab fa-linkedin fa-3x"></i>
+        </a>
+
+    </div>
+</section>
+
+<div class="album py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            {% for project in projects %}
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <a href="{% url 'detail' project.id %}">
+                        <img class="card-img-top" src="{{ project.image.url }}" />
+                    </a>
+                    <div class="card-body">
+                        <a href="{% url 'detail' project.id %}">
+                            <h5 class="card-title">{{ project.title }}</h5>
+                        </a>
+                        <p class="card-text">{{ project.summary }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}
