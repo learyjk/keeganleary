@@ -9,7 +9,7 @@
         <p class="lead text-muted fa-2x">📤&nbsp;&nbsp; 🗺&nbsp;&nbsp; 🏃&nbsp;&nbsp; ‍ 📬</p>
         <div class="d-flex justify-content-center">
             <div class="col-sm-6">
-                <div class="card mb-4 shadow-sm">
+                <div class="card mb-4 shadow-lg">
                     <img class="card-img-top" src="{% static 'keegan.jpeg' %}" />
                 </div>
             </div>
@@ -31,10 +31,40 @@
 
 <div class="album py-5 bg-light">
     <div class="container">
+        <a href="{% url 'blog:list' %}">
+            <h2 class="text-center">Blog</h2>
+        </a>
+
+        <br />
+        {% for post in blog_posts %}
+        <div class="card p-1 m-1 shadow-lg">
+            <div class="card-body p-1 m-1">
+                <div class="row">
+                    <div class="col-12">
+                        <h3 class="card-title p-0 m-0">
+                            {{ post.title }}
+                        </h3>
+                    </div>
+                </div>
+                <p class="card-text p-0 m-0"><small class="text-muted">{{ post.pub_date|date }}</small></p>
+                <p class="card-text">{{ post.text|safe|truncatechars:200 }}</p>
+                <a href="{{ post.get_absolute_url }}">Read More &rarr;</a>
+            </div>
+        </div>
+        <br />
+        {% endfor %}
+    </div>
+</div>
+<div class="album py-5 bg-light">
+    <div class="container">
+        <a href="{% url 'projects' %}">
+            <h2 class="text-center">Projects</h2>
+        </a>
+        <br />
         <div class="row">
             {% for project in projects %}
             <div class="col-md-4">
-                <div class="card mb-4 shadow-sm">
+                <div class="card mb-4 shadow-lg">
                     <a href="{% url 'detail' project.id %}">
                         <img class="card-img-top" src="{{ project.image.url }}" />
                     </a>
