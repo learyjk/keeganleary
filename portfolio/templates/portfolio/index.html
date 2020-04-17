@@ -47,7 +47,7 @@
                     </div>
                 </div>
                 <p class="card-text p-0 m-0"><small class="text-muted">{{ post.pub_date|date }}</small></p>
-                <p class="card-text">{{ post.text|safe|truncatechars:200 }}</p>
+                <p class="card-text">{{ post.text|safe|truncatewords:20 }}</p>
                 <a href="{{ post.get_absolute_url }}">Read More &rarr;</a>
             </div>
         </div>
