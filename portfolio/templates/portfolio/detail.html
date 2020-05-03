@@ -1,8 +1,10 @@
+{% extends 'base.html' %}
 {% load static %}
+
 <!-- Apple Messages Preview -->
 <meta property="og:title" content="{{ project.title }} by Keegan Leary" />
 <meta property="og:image" content="{{ project.image.url }}" />
-{% extends 'base.html' %}
+
 
 {% block title %}{{project.title}}{% endblock %}
 
