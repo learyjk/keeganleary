@@ -3,6 +3,10 @@
 
 {% block title %}{{project.title}}{% endblock %}
 
+<!-- Apple Messages Preview -->
+<meta property="og:title" content="{{ project.title }} by Keegan Leary" />
+<meta property="og:image" content="{{ project.image.url }}" />
+
 {% block content %}
 <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/carousel/">
 <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
